@@ -1,0 +1,7 @@
+<h1>Books</h1>
+<% @books.each do |book| %>
+ <p1>Title</p1>
+ <span><%= book.title %></span>
+<%= link_to "Edit", edit_book_path(@list.id) %>
+<%= link_to "Destroy", destroy_book_path(@list.id), method: :delete, "data-confirm" => "Are you sure?" %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Editing Book</h1>
+<%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
+  <p1>Title</p1>
+  <%= f.text_field :title %>
+  <p1>Body</p1>
+  <%= f.text_area :body %>
+  <%= f.submit 'Update Book' %>
+<% end %>
