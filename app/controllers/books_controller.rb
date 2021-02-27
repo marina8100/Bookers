@@ -10,11 +10,12 @@ class BooksController < ApplicationController
   # ２. データをデータベースに保存するためのsaveメソッド実行
   book.save
   # ３. トップ画面へリダイレクト
-  redirect_to books_path(list.id)
+  redirect_to book_path(book.id)
  end
 
  def index
   @books = Book.all
+  @new_book = Book.new
  end
 
  def show
