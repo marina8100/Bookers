@@ -16,7 +16,7 @@
       <td><%= book.body %></td>
       <td><%= link_to "Show", book_path(book.id) %></td>
       <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-      <td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+      <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
      </tr>
     <% end %>
    </tbody>
@@ -24,6 +24,17 @@
 
 
 <h3>New book</h3>
+ <% if @new_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_book.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% @new_book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <!-- form_with部分 -->
 <%= form_with model:@new_book, local:true do |f| %>
 
